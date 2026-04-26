@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   buildt_in.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/04/26 02:51:24 by nbaudoin         ###   ########.fr       */
+/*   Created: 2026/04/26 02:45:56 by nbaudoin          #+#    #+#             */
+/*   Updated: 2026/04/26 02:47:26 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "minishell.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# include <readline/readline.h>
-# include <readline/history.h>
-
-typedef struct s_prompt
+void	pwd(int ac)
 {
+	char *pwd;
 
-}				t_prompt;
-
-typedef struct s_data
-{
-	char 	**commands;
-	char 	**full_path;
-	t_prompt	*env;
-
-}				t_data;
-
-void	pwd(int ac);
-
-#endif
+	if (ac != 1)
+	{
+		printf("Too much arguments\n");
+		return ;
+	}
+	pwd = getcwd(NULL, 0);
+	printf("%s\n", pwd);
+	free(pwd);
+	g_status = 0;
+}
