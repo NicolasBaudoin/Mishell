@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 07:26:14 by nbaudoin          #+#    #+#             */
-/*   Updated: 2025/10/17 08:46:56 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/04/13 13:36:41 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	int		i;
 	char	*cpy_s;
 	char	to_find;
-	size_t	len;
+	int		len;
 
 	i = 0;
 	cpy_s = (char *)s;

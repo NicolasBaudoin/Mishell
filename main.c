@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/04/26 02:53:12 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/04 17:17:41 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	main()
 	char *input;
 
 
-	input = readline("Prompt ?");
+	input = readline("Mishell");
 	if (input  == NULL)
 	{
 		printf("\nExiting...\n");
 		return (0);
 	}
-	printf("%s , %d\n", input, pwd(ft_atoi(input)));
+	// printf("%s , %d\n", input, pwd(ft_atoi(input)));
 	free(input);
 
 

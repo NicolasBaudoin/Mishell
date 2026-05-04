@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 19:07:47 by nbaudoin          #+#    #+#             */
-/*   Updated: 2025/11/02 14:41:32 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/04/13 13:33:36 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	len_src = 0;
 	len_dest = 0;
-	len_src = ft_strlen(src);
+	len_src = (size_t)ft_strlen(src);
 	if (!size)
 		return (len_src);
-	len_dest = ft_strlen(dst);
+	len_dest = (size_t)ft_strlen(dst);
 	i = 0;
 	if (len_dest >= size)
 		return (len_src + size);

@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:40:30 by nbaudoin          #+#    #+#             */
-/*   Updated: 2025/11/02 15:07:42 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/04/13 13:29:07 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s) || len == 0)
+	if (start >= (unsigned int)ft_strlen(s) || len == 0)
 	{
 		nulmal = malloc(1);
 		if (!nulmal)

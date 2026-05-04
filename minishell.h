@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/04/26 02:51:24 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/04 17:15:32 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ typedef struct s_data
 
 }				t_data;
 
-void	pwd(int ac);
+// void	pwd(int ac);
 
 #endif
