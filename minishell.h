@@ -6,13 +6,12 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:09:24 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:10:36 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
-
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
