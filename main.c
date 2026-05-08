@@ -6,13 +6,14 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:07:09 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:11:42 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 int	g_status = 0;
+// status pour les signaux des fonctions et arret programme
 
 void	mishell_is_working(char *input)
 {
