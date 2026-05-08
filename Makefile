@@ -8,9 +8,17 @@ cyan = /bin/echo -e "\x1b[36m\#\# $1\x1b[0m"
 
 # ====== files ======
 
+LEXER_DIR = src/lexer
+PARSE_DIR = src/parser
+UTILS_DIR = src/utils
+
+LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c
+PARSE_FILES =
+UTILS_FILES = ${UTILS_DIR}/ft_strndup.c ${UTILS_DIR}/list_utils.c \
+	${UTILS_DIR}/detect_char_type.c
 SRC_FILES = main.c
 
-SRCS = ${SRC_FILES}
+SRCS = ${SRC_FILES} ${LEXER_FILES} ${UTILS_FILES} ${PARSE_FILES}
 LIBFT_DIR := libft
 OBJ_DIR = obj
 LIBFT_DIR := libft

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   built_in.c                                         :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 02:45:56 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/04 17:15:26 by nbaudoin         ###   ########.fr       */
+/*   Created: 2026/05/08 16:04:25 by nbaudoin          #+#    #+#             */
+/*   Updated: 2026/05/08 16:07:50 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "minishell.h"
+#include "../../minishell.h"
 
-void	pwd(int ac)
+char	*ft_strndup(const char *s, int	start, int end)
 {
-	char *pwd;
+	char	*dup;
+	int		i;
 
-	if (ac != 1)
+	dup = (char *)malloc(sizeof(char) * (end - start) + 1);
+	if (!dup)
+		return (NULL);
+	i = start;
+	while (i < end && s[i])
 	{
-		printf("Too much arguments\n");
-		return ;
+		dup[i] = s[i];
+		i++;
 	}
-	pwd = getcwd(NULL, 0);
-	printf("%s\n", pwd);
-	free(pwd);
-	g_status = 0;
+	dup[i] = '\0';
+	return (dup);
 }
