@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 17:02:05 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:07:09 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,17 @@ void	mishell_is_working(char *input)
 	printf("%s\n", tokens->value);
 	// parser(tokens)
 	// execution(tokens);
-
 	// free(token);
 }
 
-int	main()
+int	main(void)
 {
-	char *input;
+	char	*input;
 
-	while(1)
+	while (1)
 	{
 		input = readline("Mishell> ");
-		if (input  == NULL)
+		if (input == NULL)
 		{
 			printf("\nExiting...\n");
 			return (1);

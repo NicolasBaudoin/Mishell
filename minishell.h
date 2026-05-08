@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 17:47:41 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:06:31 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,13 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-
 // =====
 // MACROS
 // =====
 
 # define S_TYPE_TOKENS 81
 
-typedef  enum e_token_type
+typedef enum e_token_type
 {
 	WORD = 99,
 	PIPE,
@@ -39,7 +38,7 @@ typedef  enum e_token_type
 
 typedef struct s_token
 {
-	char	*value;
+	char			*value;
 	t_token_type	type;
 	struct s_token	*next;
 }				t_token;
@@ -51,10 +50,10 @@ typedef enum e_state
 	DOUBLE_QUOTE,
 }				t_state;
 
-typedef struct	s_lexer
+typedef struct s_lexer
 {
 	t_state		state;
-	char 		*input;
+	char		*input;
 	int			i;
 	int			start;
 }				t_lexer;
@@ -65,12 +64,10 @@ typedef struct	s_lexer
 
 typedef struct s_data
 {
-	char 	**commands;
-	char 	**full_path;
-	// t_prompt	*env;
-
+	char	**commands;
+	char	**full_path;
+	char	**env;
 }				t_data;
-
 
 // =====
 // FUNCTIONS
@@ -84,18 +81,18 @@ t_token	*lexer(char *input);
 
 // tokens
 
-t_token *new_token(char *value, t_token_type type);
+t_token	*new_token(char *value, t_token_type type);
 void	add_back_token(t_token **lst, t_token *node_to_add);
 
 // UTILS
 
-char	*ft_strndup(const char *s, int	start, int end);
+char	*ft_strndup(const char *s, int start, int end);
 
 // detect type of character
 
-int	is_operator(char c);
-int	is_space(char c);
-int	is_quote(char c);
+int		is_operator(char c);
+int		is_space(char c);
+int		is_quote(char c);
 
 // BUILTIN
 // void	pwd(int ac);

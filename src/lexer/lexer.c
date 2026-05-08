@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 17:55:59 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:05:06 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ t_token	*lexer(char *input)
 	tokens = malloc(sizeof(t_token));
 	if (!tokens)
 		return (NULL);
-
 	lexer.state = DEFAULT;
 	lexer.input = input;
 	lexer.i = 0;
-
-
-	while(lexer.input[lexer.i])
+	while (lexer.input[lexer.i])
 	{
-
 		while (is_space(lexer.input[lexer.i]) && lexer.state != DOUBLE_QUOTE)
 			lexer.i++;
 		start = lexer.i; //sauvegarde start
@@ -38,10 +34,6 @@ t_token	*lexer(char *input)
 		// separateur ou quote et qu'on est pas en mode double quote
 		// alors on change de token
 		lexer.i++;
-
 	}
-
-
-
 	return (tokens);
 }
