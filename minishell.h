@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:06:31 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:09:24 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 // =====
 // MACROS
 // =====
-
-# define S_TYPE_TOKENS 81
 
 typedef enum e_token_type
 {
