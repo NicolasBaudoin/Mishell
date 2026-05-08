@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:05:06 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:50:57 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_token	*lexer(char *input)
 		// debut d'un element, si on rencontre un operateur
 		// separateur ou quote et qu'on est pas en mode double quote
 		// alors on change de token
+		// donc add_back(new_token)
+		// sinon :
 		lexer.i++;
 	}
 	return (tokens);
