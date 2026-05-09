@@ -6,12 +6,11 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/09 11:13:50 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/09 11:15:20 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-#include <string.h>
 
 t_token	*lexer(char *input)
 {
