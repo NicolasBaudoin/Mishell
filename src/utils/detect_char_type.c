@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 17:34:26 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:05:55 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/09 10:39:03 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,20 @@ int	is_quote(char c)
 
 	ret = (c == '"' || c == '\'');
 	return (ret);
+}
+
+int	is_append(char *input, int start)
+{
+	if (input[start] == '>' && input[start + 1] == '>')
+		return (1);
+	else
+		return (0);
+}
+
+int	is_heredoc(char *input, int start)
+{
+	if (input[start] == '<' && input[start + 1] == '<')
+		return (1);
+	else
+		return (0);
 }

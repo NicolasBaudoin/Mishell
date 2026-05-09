@@ -6,11 +6,12 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:50:57 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/09 11:13:50 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+#include <string.h>
 
 t_token	*lexer(char *input)
 {
@@ -19,9 +20,7 @@ t_token	*lexer(char *input)
 	int		start;
 	int		end;
 
-	tokens = malloc(sizeof(t_token));
-	if (!tokens)
-		return (NULL);
+	tokens = NULL;
 	lexer.state = DEFAULT;
 	lexer.input = input;
 	lexer.i = 0;
@@ -30,6 +29,13 @@ t_token	*lexer(char *input)
 		while (is_space(lexer.input[lexer.i]) && lexer.state != DOUBLE_QUOTE)
 			lexer.i++;
 		start = lexer.i; //sauvegarde start
+		if (is_operator(lexer.input[lexer.i]))
+			create_operator_token(lexer.input, start, 1, &tokens);	// créer operateur token
+		else
+			add_back_token(&tokens, new_token(ft_strndup(input, start, end), WORD));
+			// read word
+
+
 		// debut d'un element, si on rencontre un operateur
 		// separateur ou quote et qu'on est pas en mode double quote
 		// alors on change de token

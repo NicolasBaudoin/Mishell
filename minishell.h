@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:10:36 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/09 11:06:42 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ t_token	*lexer(char *input);
 
 t_token	*new_token(char *value, t_token_type type);
 void	add_back_token(t_token **lst, t_token *node_to_add);
+int		create_token(t_token **tokens, t_lexer *lexer, int start,
+	t_token_type type);
 
 // UTILS
 
@@ -90,6 +92,12 @@ char	*ft_strndup(const char *s, int start, int end);
 int		is_operator(char c);
 int		is_space(char c);
 int		is_quote(char c);
+int		is_append(char *input, int start);
+int		is_heredoc(char *input, int start);
+
+// operator
+
+void	create_operator_token(char *input, int start, int end, t_token **tokens);
 
 // BUILTIN
 // void	pwd(int ac);
