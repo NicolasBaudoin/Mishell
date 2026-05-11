@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 12:33:16 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/11 19:44:39 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_token	*lexer(char *input)
 {
 	t_token	*tokens;
 	t_lexer	lexer;
+	int	start;
+	int	end;
 
 	tokens = NULL;
 	lexer.state = DEFAULT;
@@ -24,9 +26,18 @@ t_token	*lexer(char *input)
 	lexer.i = 0;
 	while (lexer.input[lexer.i])
 	{
-		// handle mode
+		while (is_space(lexer.input[lexer.i]))
+			lexer.i++;
 		if (is_operator(lexer.input[lexer.i]))
-			create_operator_token(char *input, int start, int end, t_token **tokens)
+			create_operator_token(&lexer, &tokens);
+		if (is_word(lexer.input[lexer.i]) && lexer.input[lexer.i])
+		{
+			start = lexer.i;
+			while (!is_space(lexer.input[lexer.i]) && !is_operator(lexer.input[lexer.i]) && lexer.input[lexer.i])
+				lexer.i++;
+			end = lexer.i;
+			add_back_token(&tokens, new_token(ft_strndup(input, start, end), WORD));
+		}
 	}
 	return (tokens);
 }

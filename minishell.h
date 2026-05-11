@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 12:16:27 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/11 19:38:37 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ int		is_space(char c);
 int		is_quote(char c);
 int		is_append(char *input, int start);
 int		is_heredoc(char *input, int start);
+int		is_word(char c);
 
 // operator
 
-void	create_operator_token(char *input, int start, int end, t_token **tokens);
-
+void	create_operator_token(t_lexer *lexer, t_token **tokens);
 // BUILTIN
 // void	pwd(int ac);
 

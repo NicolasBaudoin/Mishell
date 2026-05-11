@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   detect_type.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/08 16:04:25 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 19:21:52 by nbaudoin         ###   ########.fr       */
+/*   Created: 2026/05/11 19:30:40 by nbaudoin          #+#    #+#             */
+/*   Updated: 2026/05/11 19:38:18 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char	*ft_strndup(const char *s, int start, int end)
+int	is_word(char c)
 {
-	char	*dup;
-	int		i;
+	int	ret;
 
-	dup = (char *)malloc(sizeof(char) * (end - start) + 1);
-	if (!dup)
-		return (NULL);
-	i = 0;
-	while (i < end - start && s[start + i])
-	{
-		dup[i] = s[start + i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	ret = (!is_space(c) || !is_operator(c));
+	return (ret);
 }

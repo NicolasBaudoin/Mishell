@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 10:49:22 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/11 19:16:33 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	mishell_is_working(char *input)
 		return ;
 	while (curr)
 	{
-		printf("%s %d\n", curr->value, curr->type);
+		printf("value = [%s], type = %d\n", curr->value, curr->type);
 		curr = curr->next;
 	}
 	// parser(tokens)
