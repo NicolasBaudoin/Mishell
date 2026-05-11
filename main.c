@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/08 18:11:42 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:49:22 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,18 @@ int	g_status = 0;
 void	mishell_is_working(char *input)
 {
 	t_token	*tokens;
+	t_token	*curr;
+
 
 	tokens = lexer(input);
+	curr = tokens;
 	if (!tokens)
 		return ;
-	printf("%s\n", tokens->value);
+	while (curr)
+	{
+		printf("%s %d\n", curr->value, curr->type);
+		curr = curr->next;
+	}
 	// parser(tokens)
 	// execution(tokens);
 	// free(token);

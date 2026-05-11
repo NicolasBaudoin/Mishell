@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/09 11:15:20 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:52:36 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,20 @@ t_token	*lexer(char *input)
 			lexer.i++;
 		start = lexer.i; //sauvegarde start
 		if (is_operator(lexer.input[lexer.i]))
-			create_operator_token(lexer.input, start, 1, &tokens);	// créer operateur token
+			create_operator_token(&lexer, start, 1, &tokens);	// créer operateur token
 		else
+		{
+			while (!is_operator(lexer.input[lexer.i]))
+				lexer.i++;
+			end = lexer.i -start;
 			add_back_token(&tokens, new_token(ft_strndup(input, start, end), WORD));
+		}
 			// read word
-
-
-		// debut d'un element, si on rencontre un operateur
-		// separateur ou quote et qu'on est pas en mode double quote
-		// alors on change de token
-		// donc add_back(new_token)
-		// sinon :
+			// debut d'un element, si on rencontre un operateur
+			// separateur ou quote et qu'on est pas en mode double quote
+			// alors on change de token
+			// donc add_back(new_token)
+			// sinon :
 		lexer.i++;
 	}
 	return (tokens);

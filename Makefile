@@ -6,7 +6,7 @@
 #    By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 18:00:19 by nbaudoin          #+#    #+#              #
-#    Updated: 2026/05/08 18:00:21 by nbaudoin         ###   ########.fr        #
+#    Updated: 2026/05/11 10:41:18 by nbaudoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LEXER_DIR = src/lexer
 PARSE_DIR = src/parser
 UTILS_DIR = src/utils
 
-LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c
+LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c ${LEXER_DIR}/operator.c
 PARSE_FILES =
 UTILS_FILES = ${UTILS_DIR}/ft_strndup.c ${UTILS_DIR}/detect_char_type.c
 SRC_FILES = main.c
