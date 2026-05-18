@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 14:23:47 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:43:35 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static void	skip_space(t_lexer *lexer)
 
 int	read_word(t_token **tokens, t_lexer *lexer)
 {
-	int	start;
-	int	ret;
-	t_token_info info;
+	int				start;
+	int				ret;
+	t_token_info	info;
 
 	start = lexer->i;
 	while (lexer->input[lexer->i])
