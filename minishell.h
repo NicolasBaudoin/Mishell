@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 11:11:40 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 11:37:38 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,22 @@ typedef struct s_lexer
 // {
 // }				t_prompt;
 
+typedef struct s_redir
+{
+	int	type;
+	char *file;
+	struct s_redir *next;
+}				t_redir;
+
+typedef struct s_command
+{
+	char	**args;
+	t_redir	*redir;
+	struct s_command *next;
+}				t_command;
+
 typedef struct s_data
 {
-	char	**commands;
 	char	**full_path;
 	char	**env;
 }				t_data;
