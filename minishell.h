@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 11:37:38 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:05:30 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_lexer
 	t_state		state;
 	char		*input;
 	int			i;
-	int			start;
 }				t_lexer;
 
 // typedef struct s_prompt
@@ -109,6 +108,13 @@ void	add_back_token(t_token **lst, t_token *node_to_add);
 int		create_token(t_token **tokens, t_lexer *lexer, int start, int end,
 		t_token_type type);
 void	free_token(t_token **tokens);
+
+// Norme / refacto
+
+int		handle_default_state(t_lexer *lexer, char c);
+int		handle_quote_state(t_lexer *lexer, char c);
+int		handle_quote_unclosed(t_lexer *lexer);
+int		read_word_loop(t_lexer *lexer, char c);
 
 // UTILS
 
