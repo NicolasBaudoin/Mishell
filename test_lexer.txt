@@ -1,0 +1,134 @@
+[?2004hMishell> ls
+[?2004l
+value = [ls], type = 99
+[?2004hMishell> echo hello
+[?2004l
+value = [echo], type = 99
+value = [hello], type = 99
+[?2004hMishell> ls -la
+[?2004l
+value = [ls], type = 99
+value = [-la], type = 99
+[?2004hMishell> echo hello world
+[?2004l
+value = [echo], type = 99
+value = [hello], type = 99
+value = [world], type = 99
+[?2004hMishell> ls | grep foo
+[?2004l
+value = [ls], type = 99
+value = [|], type = 100
+value = [grep], type = 99
+value = [foo], type = 99
+[?2004hMishell> ls | grep foo | wc -l
+[?2004l
+value = [ls], type = 99
+value = [|], type = 100
+value = [grep], type = 99
+value = [foo], type = 99
+value = [|], type = 100
+value = [wc], type = 99
+value = [-l], type = 99
+[?2004hMishell> echo hello > file
+[?2004l
+value = [echo], type = 99
+value = [hello], type = 99
+value = [>], type = 102
+value = [file], type = 99
+[?2004hMishell> cat < file
+[?2004l
+value = [cat], type = 99
+value = [<], type = 101
+value = [file], type = 99
+[?2004hMishell> echo hello >> file
+[?2004l
+value = [echo], type = 99
+value = [hello], type = 99
+value = [>>], type = 103
+value = [file], type = 99
+[?2004hMishell> cat << EOF
+[?2004l
+value = [cat], type = 99
+value = [<<], type = 104
+value = [EOF], type = 99
+[?2004hMishell> ls>file
+[?2004l
+value = [ls], type = 99
+value = [>], type = 102
+value = [file], type = 99
+[?2004hMishell> ls>>file
+[?2004l
+value = [ls], type = 99
+value = [>>], type = 103
+value = [file], type = 99
+[?2004hMishell> cat<<file
+[?2004l
+value = [cat], type = 99
+value = [<<], type = 104
+value = [file], type = 99
+[?2004hMishell> ls|grep foo
+[?2004l
+value = [ls], type = 99
+value = [|], type = 100
+value = [grep], type = 99
+value = [foo], type = 99
+[?2004hMishell> echo "hello world"
+[?2004l
+value = [echo], type = 99
+value = ["hello world"], type = 99
+[?2004hMishell> echo 'hello world'
+[?2004l
+value = [echo], type = 99
+value = ['hello world'], type = 99
+[?2004hMishell> echo 'hello "world"'
+[?2004l
+value = [echo], type = 99
+value = ['hello "world"'], type = 99
+[?2004hMishell> echo ""
+[?2004l
+value = [echo], type = 99
+value = [""], type = 99
+[?2004hMishell> echo ''
+[?2004l
+value = [echo], type = 99
+value = [''], type = 99
+[?2004hMishell> echo "hello"word
+[?2004l
+value = [echo], type = 99
+value = ["hello"word], type = 99
+[?2004hMishell> echo 'hello'"word"
+[?2004l
+value = [echo], type = 99
+value = ['hello'"word"], type = 99
+[?2004hMishell> echo "hello
+[?2004l
+minishell: unexpected quote unclosed
+[?2004hMishell> echo 'hello
+[?2004l
+minishell: unexpected quote unclosed
+[?2004hMishell> echo "hello 'world"'
+[?2004l
+minishell: unexpected quote unclosed
+[?2004hMishell>
+
+Mishell>      ls     -la
+value = [ls], type = 99
+value = [-la], type = 99
+
+Mishell> echo    hello    world
+value = [echo], type = 99
+value = [hello], type = 99
+value = [world], type = 99
+Mishell>
+
+Mishell>       |
+value = [|], type = 100
+Mishell>
+
+Mishell>
+Mishell>
+Mishell> |
+value = [|], type = 100
+Mishell> ^C
+Mishell>
+Exiting..
