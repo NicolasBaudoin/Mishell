@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:30:40 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 19:38:18 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:22:15 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	is_word(char c)
 {
 	int	ret;
 
-	ret = (!is_space(c) || !is_operator(c));
+	ret = (!is_space(c) && !is_operator(c));
 	return (ret);
 }
