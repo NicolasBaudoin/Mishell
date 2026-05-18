@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 14:22:10 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:45:51 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <readline/history.h>
 # include <signal.h>
 
-
 // GLOBAL
 
 extern int	g_status;
@@ -28,8 +27,6 @@ extern int	g_status;
 // =====
 // MACROS
 // =====
-
-
 
 typedef enum e_token_type
 {
@@ -43,8 +40,8 @@ typedef enum e_token_type
 
 typedef struct s_token_info
 {
-	int	start;
-	int	end;
+	int				start;
+	int				end;
 	t_token_type	type;
 }				t_token_info;
 
@@ -75,16 +72,16 @@ typedef struct s_lexer
 
 typedef struct s_redir
 {
-	int	type;
-	char *file;
-	struct s_redir *next;
+	int				type;
+	char			*file;
+	struct s_redir	*next;
 }				t_redir;
 
 typedef struct s_command
 {
-	char	**args;
-	t_redir	*redir;
-	struct s_command *next;
+	char				**args;
+	t_redir				*redir;
+	struct s_command	*next;
 }				t_command;
 
 typedef struct s_data
