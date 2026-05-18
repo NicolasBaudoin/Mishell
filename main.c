@@ -6,11 +6,13 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 19:16:33 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:39:50 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include <readline/history.h>
+#include <readline/readline.h>
 
 int	g_status = 0;
 // status pour les signaux des fonctions et arret programme
@@ -32,7 +34,7 @@ void	mishell_is_working(char *input)
 	}
 	// parser(tokens)
 	// execution(tokens);
-	// free(token);
+	free_token(&tokens);
 }
 
 int	main(void)
@@ -44,9 +46,11 @@ int	main(void)
 		input = readline("Mishell> ");
 		if (input == NULL)
 		{
+			rl_clear_history();
 			printf("\nExiting...\n");
 			return (1);
 		}
+		add_history(input);
 		mishell_is_working(input);
 		free(input);
 	}

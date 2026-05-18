@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 19:38:37 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:37:27 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_token	*new_token(char *value, t_token_type type);
 void	add_back_token(t_token **lst, t_token *node_to_add);
 int		create_token(t_token **tokens, t_lexer *lexer, int start,
 	t_token_type type);
+void	free_token(t_token **tokens);
 
 // UTILS
 
