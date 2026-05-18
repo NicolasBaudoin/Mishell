@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 10:57:15 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 11:11:40 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include "libft/libft.h"
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <signal.h>
+
+
+// GLOBAL
+
+extern int	g_status;
 
 // =====
 // MACROS
@@ -65,6 +71,13 @@ typedef struct s_data
 	char	**full_path;
 	char	**env;
 }				t_data;
+
+// =====
+// SIGNALS
+// =====
+
+void	setup_signals(void);
+void	handle_sigint(int sig);
 
 // =====
 // FUNCTIONS

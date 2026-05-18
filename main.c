@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 10:41:20 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 11:11:44 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(void)
 {
 	char	*input;
 
+	setup_signals();
 	while (1)
 	{
 		input = readline("Mishell> ");

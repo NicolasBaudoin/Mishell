@@ -6,7 +6,7 @@
 #    By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 18:00:19 by nbaudoin          #+#    #+#              #
-#    Updated: 2026/05/11 19:41:31 by nbaudoin         ###   ########.fr        #
+#    Updated: 2026/05/18 11:12:56 by nbaudoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ UTILS_FILES = ${UTILS_DIR}/ft_strndup.c ${UTILS_DIR}/detect_char_type.c \
 		${UTILS_DIR}/detect_type.c
 SRC_FILES = main.c
 
-SRCS = ${SRC_FILES} ${LEXER_FILES} ${UTILS_FILES} ${PARSE_FILES}
+SRCS = ${SRC_FILES} ${LEXER_FILES} ${UTILS_FILES} ${PARSE_FILES} src/signals.c
 LIBFT_DIR := libft
 OBJ_DIR = obj
 LIBFT_DIR := libft
