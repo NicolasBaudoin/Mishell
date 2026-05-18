@@ -6,12 +6,26 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 12:04:52 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:14:10 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
+
+static void	init_var(t_token **tokens, t_lexer *lexer, char *input)
+{
+	*tokens = NULL;
+	lexer->state = DEFAULT;
+	lexer->input = input;
+	lexer->i = 0;
+}
+
+static void	skip_space(t_lexer *lexer)
+{
+	while (is_space(lexer->input[lexer->i]))
+			lexer->i++;
+}
 
 int	read_word(t_token **tokens, t_lexer *lexer)
 {
@@ -39,18 +53,12 @@ t_token	*lexer(char *input)
 	t_token	*tokens;
 	t_lexer	lexer;
 
-
-	tokens = NULL;
-	lexer.state = DEFAULT;
-	lexer.input = input;
-	lexer.i = 0;
+	init_var(&tokens, &lexer, input);
 	while (lexer.input[lexer.i])
 	{
-		while (is_space(lexer.input[lexer.i]))
-			lexer.i++;
+		skip_space(&lexer);
 		if (!lexer.input[lexer.i])
 			break ;
-
 		if (is_operator(lexer.input[lexer.i]))
 		{
 			if (create_operator_token(&lexer, &tokens))
