@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 17:19:01 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 12:15:31 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:22:27 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,15 @@ void	add_back_token(t_token **lst, t_token *node_to_add)
 	tmp->next = node_to_add;
 }
 
-int	create_token(t_token **tokens, t_lexer *lexer, int start, int end,
-	t_token_type type)
+int	create_token(t_token **tokens, t_lexer *lexer, t_token_info info)
 {
 	t_token	*new;
 	char	*value;
 
-	value = ft_strndup(lexer->input, start, end);
+	value = ft_strndup(lexer->input, info.start, info.end);
 	if (!value)
 		return (1);
-	new = new_token(value, type);
+	new = new_token(value, info.type);
 	if (!new)
 	{
 		free(value);

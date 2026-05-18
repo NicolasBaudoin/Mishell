@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 12:05:30 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:22:10 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ extern int	g_status;
 // MACROS
 // =====
 
+
+
 typedef enum e_token_type
 {
 	WORD = 99,
@@ -38,6 +40,13 @@ typedef enum e_token_type
 	APPEND,
 	HEREDOC
 }				t_token_type;
+
+typedef struct s_token_info
+{
+	int	start;
+	int	end;
+	t_token_type	type;
+}				t_token_info;
 
 typedef struct s_token
 {
@@ -105,8 +114,7 @@ t_token	*lexer(char *input);
 
 t_token	*new_token(char *value, t_token_type type);
 void	add_back_token(t_token **lst, t_token *node_to_add);
-int		create_token(t_token **tokens, t_lexer *lexer, int start, int end,
-		t_token_type type);
+int		create_token(t_token **tokens, t_lexer *lexer, t_token_info info);
 void	free_token(t_token **tokens);
 
 // Norme / refacto

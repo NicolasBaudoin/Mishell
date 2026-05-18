@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 10:18:02 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 12:16:43 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:25:46 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,35 @@
 
 int	create_operator_token(t_lexer *lexer, t_token **tokens)
 {
-	int		type;
 	char	c;
-	int		start;
-	int		end;
+	t_token_info info;
 
-	start = lexer->i;
-	end = start + 1;
-	type = 0;
-	c = lexer->input[start];
+	info.start = lexer->i;
+	info.end = info.start + 1;
+	info.type = 0;
+	c = lexer->input[info.start];
 	if (c == '|')
-		type = PIPE;
-	else if (is_append(lexer->input, start))
+		info.type = PIPE;
+	else if (is_append(lexer->input, info.start))
 	{
 		lexer->i++;
-		type = APPEND;
-		end = start + 2;
+		info.type = APPEND;
+		info.end = info.start + 2;
 	}
-	else if (is_heredoc(lexer->input, start))
+	else if (is_heredoc(lexer->input, info.start))
 	{
 		lexer->i++;
-		type = HEREDOC;
-		end = start + 2;
+		info.type = HEREDOC;
+		info.end = info.start + 2;
 	}
 	else if (c == '<')
-		type = REDIR_IN;
+		info.type = REDIR_IN;
 	else if (c == '>')
-		type = REDIR_OUT;
+		info.type = REDIR_OUT;
 	else
 		return (1);
 	lexer->i++;
-	if (create_token(tokens, lexer, start, end, type))
+	if (create_token(tokens, lexer, info))
 		return (1);
 	return (0);
 }
