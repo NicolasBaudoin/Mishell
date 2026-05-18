@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 10:37:27 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:57:15 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ t_token	*lexer(char *input);
 
 t_token	*new_token(char *value, t_token_type type);
 void	add_back_token(t_token **lst, t_token *node_to_add);
-int		create_token(t_token **tokens, t_lexer *lexer, int start,
-	t_token_type type);
+int		create_token(t_token **tokens, t_lexer *lexer, int start, int end,
+		t_token_type type);
 void	free_token(t_token **tokens);
 
 // UTILS
@@ -99,7 +99,7 @@ int		is_word(char c);
 
 // operator
 
-void	create_operator_token(t_lexer *lexer, t_token **tokens);
+int		create_operator_token(t_lexer *lexer, t_token **tokens);
 // BUILTIN
 // void	pwd(int ac);
 

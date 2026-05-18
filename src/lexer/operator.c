@@ -6,13 +6,13 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 10:18:02 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 19:26:46 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:58:33 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	create_operator_token(t_lexer *lexer, t_token **tokens)
+int	create_operator_token(t_lexer *lexer, t_token **tokens)
 {
 	int		type;
 	char	c;
@@ -42,6 +42,10 @@ void	create_operator_token(t_lexer *lexer, t_token **tokens)
 		type = REDIR_IN;
 	else if (c == '>')
 		type = REDIR_OUT;
+	else
+		return (1);
 	lexer->i++;
-	add_back_token(tokens, new_token(ft_strndup(lexer->input, start, end), type));
+	if (create_token(tokens, lexer, start, end, type))
+		return (1);
+	return (0);
 }
