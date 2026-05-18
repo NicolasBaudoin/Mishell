@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 17:19:01 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/09 11:10:50 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 10:35:40 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ t_token	*new_token(char *value, t_token_type type)
 	t = malloc(sizeof(t_token));
 	if (!t)
 		return (NULL);
+	if (!value)
+	{
+		free(t);
+		return (NULL);
+	}
 	t->value = value;
 	t->type = type;
 	t->next = NULL;
@@ -45,11 +50,8 @@ int	create_token(t_token **tokens, t_lexer *lexer, int start,
 {
 	t_token	*new;
 	char	*value;
-	int		end;
 
-
-	end = lexer->i - start;
-	value = ft_strndup(lexer->input, start, end);
+	value = ft_strndup(lexer->input, start, lexer->i);
 	if (!value)
 		return (1);
 	new = new_token(value, type);
@@ -60,4 +62,21 @@ int	create_token(t_token **tokens, t_lexer *lexer, int start,
 	}
 	add_back_token(tokens, new);
 	return (0);
+}
+
+void	free_token(t_token **tokens)
+{
+	t_token	*curr;
+	t_token	*tmp;
+
+	curr = *tokens;
+
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr->value);
+		free(curr);
+		curr = tmp;
+	}
+	*tokens = NULL;
 }
