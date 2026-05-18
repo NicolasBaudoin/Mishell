@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 17:19:01 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 10:57:41 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:15:31 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	free_token(t_token **tokens)
 	t_token	*tmp;
 
 	curr = *tokens;
-
 	while (curr)
 	{
 		tmp = curr->next;

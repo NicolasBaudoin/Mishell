@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 11:43:22 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 12:02:52 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:19:14 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	handle_quote_unclosed(t_lexer *lexer)
 {
 	if (lexer->state != DEFAULT)
 	{
-		write(2, "minishell: unexpected EOF while looking for matching quote\n", ft_strlen("minishell: unexpected EOF while looking for matching quote\n"));
+		write(2, "minishell: unexpected quote unclosed\n",
+			ft_strlen("minishell: unexpected quote unclosed\n"));
 		return (1);
 	}
 	return (0);

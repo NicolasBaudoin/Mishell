@@ -6,12 +6,11 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:22:23 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 12:14:10 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:15:11 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-
 
 static void	init_var(t_token **tokens, t_lexer *lexer, char *input)
 {
@@ -24,7 +23,7 @@ static void	init_var(t_token **tokens, t_lexer *lexer, char *input)
 static void	skip_space(t_lexer *lexer)
 {
 	while (is_space(lexer->input[lexer->i]))
-			lexer->i++;
+		lexer->i++;
 }
 
 int	read_word(t_token **tokens, t_lexer *lexer)

@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 10:18:02 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 10:58:33 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:16:43 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	create_operator_token(t_lexer *lexer, t_token **tokens)
 	end = start + 1;
 	type = 0;
 	c = lexer->input[start];
-
-	if (c  == '|')
+	if (c == '|')
 		type = PIPE;
 	else if (is_append(lexer->input, start))
 	{
