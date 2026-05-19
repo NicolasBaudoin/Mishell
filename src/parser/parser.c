@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 13:50:50 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 14:42:09 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/19 15:30:26 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	parser(t_token *token)
 	// check si un REDIR est suivis d'un mot
 	if (check_redir_word(token))
 		return (1);
+	// TODO : check to add new edge cases later
 	return (0);
 }
