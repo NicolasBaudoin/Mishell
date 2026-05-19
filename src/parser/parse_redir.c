@@ -6,11 +6,27 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 23:25:41 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:33:14 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/20 00:49:05 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+void	free_redir(t_redir **redir)
+{
+	t_redir *curr;
+	t_redir *tmp;
+
+	curr = *redir;
+	while (curr)
+	{
+		tmp = curr->next;
+		free(curr->file);
+		free(curr);
+		curr = tmp;
+	}
+	*redir = NULL;
+}
 
 t_redir	*new_redir(void)
 {

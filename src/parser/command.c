@@ -6,11 +6,30 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:27:05 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/20 00:54:05 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+void	free_cmds(t_cmd **cmd)
+{
+	t_cmd *curr;
+	t_cmd *tmp;
+
+
+	curr = *cmd;
+	while (curr)
+	{
+		tmp = curr->next;
+		free_args(curr->args);
+		free_redir(&curr->redir);
+		free(cmd);
+		curr = tmp;
+	}
+	*cmd = NULL;
+
+}
 
 int	count_args(t_token *token)
 {

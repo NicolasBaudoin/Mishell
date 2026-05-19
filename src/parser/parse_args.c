@@ -6,13 +6,13 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:49:11 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 23:25:39 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/20 00:43:25 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	free_args(char **args)
+void	free_args(char **args)
 {
 	int	i;
 
