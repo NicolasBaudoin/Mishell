@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   detect_type.c                                      :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/11 19:30:40 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 15:07:27 by nbaudoin         ###   ########.fr       */
+/*   Created: 2026/05/19 15:04:38 by nbaudoin          #+#    #+#             */
+/*   Updated: 2026/05/19 15:19:43 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	is_word(char c)
+void	print_preset_error(int mode)
 {
-	int	ret;
+	char *message;
 
-	ret = (!is_space(c) && !is_operator(c));
-	return (ret);
-}
-
-int	is_token_word(t_token_type type)
-{
-	if (!is_operator_type(type))
-		return (1);
-	return (0);
-}
-
-int	is_pipe(t_token_type type)
-{
-	if (type == PIPE)
-		return (1);
-	return (0);
-}
-
-int	is_operator_type(t_token_type type)
-{
-	return ((type == APPEND || type == HEREDOC || type == PIPE || type == REDIR_IN || type == REDIR_OUT));
+	if (mode == 0)
+	{
+		message = "minishell: syntax error near unexpected token `|'\n";
+		write(2, message, ft_strlen(message));
+		return ;
+	}
+	else if (mode == 1)
+	{
+		message = "minishell: syntax error near unexpected token `newline'\n";
+		write(2, message, ft_strlen(message));
+	}
+	else
+	{
+		message = "No mode specified\n";
+		write(2, message, ft_strlen(message));
+		return ;
+	}
 }

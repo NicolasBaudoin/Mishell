@@ -6,7 +6,7 @@
 #    By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 18:00:19 by nbaudoin          #+#    #+#              #
-#    Updated: 2026/05/18 12:06:08 by nbaudoin         ###   ########.fr        #
+#    Updated: 2026/05/19 15:22:04 by nbaudoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ UTILS_DIR = src/utils
 
 LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c ${LEXER_DIR}/operator.c \
 			${LEXER_DIR}/norme.c
-PARSE_FILES =
+PARSE_FILES = ${PARSE_DIR}/parser.c ${PARSE_DIR}/syntax_error.c
 UTILS_FILES = ${UTILS_DIR}/ft_strndup.c ${UTILS_DIR}/detect_char_type.c \
-		${UTILS_DIR}/detect_type.c
+		${UTILS_DIR}/detect_type.c ${UTILS_DIR}/print.c
 SRC_FILES = main.c
 
 SRCS = ${SRC_FILES} ${LEXER_FILES} ${UTILS_FILES} ${PARSE_FILES} src/signals.c

@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/18 14:51:31 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/19 15:24:06 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	g_status = 0;
 // status pour les signaux des fonctions et arret programme
-// add 	// parser(tokens)
+// add
 // execution(tokens);
 
 void	mishell_is_working(char *input)
@@ -26,6 +26,11 @@ void	mishell_is_working(char *input)
 	curr = tokens;
 	if (!tokens)
 		return ;
+	if (parser(tokens))
+	{
+		free_token(&tokens);
+		return ;
+	}
 	while (curr)
 	{
 		printf("value = [%s], type = %d\n", curr->value, curr->type);

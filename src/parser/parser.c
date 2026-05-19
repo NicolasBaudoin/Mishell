@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   detect_type.c                                      :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/11 19:30:40 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 15:07:27 by nbaudoin         ###   ########.fr       */
+/*   Created: 2026/05/19 13:50:50 by nbaudoin          #+#    #+#             */
+/*   Updated: 2026/05/19 14:42:09 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	is_word(char c)
+int	parser(t_token *token)
 {
-	int	ret;
-
-	ret = (!is_space(c) && !is_operator(c));
-	return (ret);
-}
-
-int	is_token_word(t_token_type type)
-{
-	if (!is_operator_type(type))
+	// check si premier et dernier token sont un operateur
+	if (check_first_last_pipe(token))
+		return (1);
+	// check si 2 opérateurs se suivent
+	if (check_consecutive_operator(token))
+		return (1);
+	// check si un REDIR est suivis d'un mot
+	if (check_redir_word(token))
 		return (1);
 	return (0);
-}
-
-int	is_pipe(t_token_type type)
-{
-	if (type == PIPE)
-		return (1);
-	return (0);
-}
-
-int	is_operator_type(t_token_type type)
-{
-	return ((type == APPEND || type == HEREDOC || type == PIPE || type == REDIR_IN || type == REDIR_OUT));
 }
