@@ -6,7 +6,7 @@
 #    By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 18:00:19 by nbaudoin          #+#    #+#              #
-#    Updated: 2026/05/19 23:47:51 by nbaudoin         ###   ########.fr        #
+#    Updated: 2026/05/20 00:16:27 by nbaudoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c \
 
 PARSE_FILES = ${PARSE_DIR}/parser.c ${PARSE_DIR}/syntax_error.c \
 			${PARSE_DIR}/command.c ${PARSE_DIR}/parse_args.c \
-			${PARSE_DIR}/parse_redir
+			${PARSE_DIR}/parse_redir.c
 
 UTILS_FILES = ${UTILS_DIR}/ft_strndup.c ${UTILS_DIR}/detect_char_type.c \
 		${UTILS_DIR}/detect_type.c ${UTILS_DIR}/print.c

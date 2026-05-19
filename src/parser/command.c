@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 23:44:08 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/20 00:27:05 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,21 @@ t_cmd	*new_command(void)
 	return (t);
 }
 
+void	add_back_cmd(t_cmd **lst, t_cmd *node_to_add)
+{
+	t_cmd	*tmp;
+
+	if (!*lst)
+	{
+		*lst = node_to_add;
+		return ;
+	}
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = node_to_add;
+}
+
 t_cmd	*build_commands(t_token **token)
 {
 	t_cmd *cmd;
@@ -50,6 +65,7 @@ t_cmd	*build_commands(t_token **token)
 	cmd = new_command();
 	while (*token && (*token)->type != PIPE)
 	{
+		printf("build commands : token: %s type: %d\n", (*token)->value, (*token)->type); // debug
 		if (is_token_word((*token)->type))
 		{
 			if (parse_args(token, cmd))
@@ -58,7 +74,7 @@ t_cmd	*build_commands(t_token **token)
 				return (NULL);
 			}
 		}
-		if (is_token_redir((*token)->type))
+		else if (*token && is_token_redir((*token)->type))
 		{
 			if (parse_redirs(token, cmd))
 			{
@@ -67,6 +83,8 @@ t_cmd	*build_commands(t_token **token)
 				return (NULL);
 			}
 		}
+		else
+			break ;
 	}
 	return (cmd);
 }
