@@ -47,7 +47,7 @@ input (readline)
 	 ↓
   Lexer        → liste de tokens
 	 ↓
-  Parser       → liste de t_command
+  Parser       → liste de t_cmd
 	 ↓
   Expander     → expansion $VAR, quotes
 	 ↓
@@ -202,7 +202,7 @@ Tokens :
 [echo] → [hello] → [|] → [cat] → NULL
 
 Commands :
-t_command                t_command
+t_cmd                t_cmd
 ---------                ---------
 args = ["echo","hello"]  args = ["cat"]
 redirs = NULL       →    redirs = NULL
@@ -219,11 +219,11 @@ next ────────────────►   next = NULL
 - [x] Refacto norme 42 (25 lignes)
 
 #### 🔧 Parser
-- [ ] Structures t_command et t_redir
+- [ ] Structures t_cmd et t_redir
 - [ ] compter les args avant pipe
 - [ ] remplir char **args
 - [ ] construire liste t_redir
-- [ ] construire liste t_command
+- [ ] construire liste t_cmd
 - [ ] Détection erreurs syntaxe (pipe seul, etc.)
 - [ ] free_commands() — libération mémoire
 

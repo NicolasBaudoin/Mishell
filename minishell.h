@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 15:49:17 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/19 23:36:43 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ extern int	g_status;
 // =====
 // MACROS
 // =====
+
+// Lexer
 
 typedef enum e_token_type
 {
@@ -66,6 +68,8 @@ typedef struct s_lexer
 	int			i;
 }				t_lexer;
 
+// Parser struct
+
 typedef struct s_redir
 {
 	int				type;
@@ -73,12 +77,14 @@ typedef struct s_redir
 	struct s_redir	*next;
 }				t_redir;
 
-typedef struct s_command
+typedef struct s_cmd
 {
 	char				**args;
 	t_redir				*redir;
 	struct s_command	*next;
-}				t_command;
+}				t_cmd;
+
+// general data
 
 typedef struct s_data
 {
@@ -121,11 +127,26 @@ int		read_word_loop(t_lexer *lexer, char c);
 // PARSER
 // =====
 
+// syntax error
+
 int		parser(t_token *token);
 int		syntax_error(t_token *token);
 int		check_first_last_pipe(t_token *token);
 int		check_consecutive_operator(t_token *token);
 int		check_redir_word(t_token *token);
+
+// command builder
+
+// args
+t_cmd	*new_command(void);
+int		count_args(t_token *token);
+int		parse_args(t_token **token, t_cmd *cmd);
+
+// redirections
+
+t_redir	*new_redir(void);
+void	add_back_redir(t_redir **lst, t_redir *node_to_add);
+int		parse_redirs(t_token **token, t_cmd *cmd);
 
 // =====
 // UTILS
@@ -144,6 +165,7 @@ int		is_word(char c);
 int		is_pipe(t_token_type type);
 int		is_operator_type(t_token_type type);
 int		is_token_word(t_token_type type);
+int		is_token_redir(t_token_type type);
 
 // print
 

@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:30:40 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 15:07:27 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/19 23:36:33 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,9 @@ int	is_pipe(t_token_type type)
 int	is_operator_type(t_token_type type)
 {
 	return ((type == APPEND || type == HEREDOC || type == PIPE || type == REDIR_IN || type == REDIR_OUT));
+}
+
+int	is_token_redir(t_token_type type)
+{
+	return (type == APPEND || type == HEREDOC || type == REDIR_IN || type == REDIR_OUT);
 }
