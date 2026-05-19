@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 15:15:36 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/19 15:49:17 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,12 +121,11 @@ int		read_word_loop(t_lexer *lexer, char c);
 // PARSER
 // =====
 
-int	parser(t_token *token);
-
-
-int	check_first_last_pipe(t_token *token);
-int	check_consecutive_operator(t_token *token);
-int	check_redir_word(t_token *token);
+int		parser(t_token *token);
+int		syntax_error(t_token *token);
+int		check_first_last_pipe(t_token *token);
+int		check_consecutive_operator(t_token *token);
+int		check_redir_word(t_token *token);
 
 // =====
 // UTILS
