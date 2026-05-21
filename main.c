@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:54:20 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/21 14:28:21 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,16 @@ int	g_status = 0;
 void	mishell_is_working(char *input)
 {
 	t_token	*tokens;
-	t_token	*curr;
 	t_cmd	*cmds;
 
 	tokens = lexer(input);
-	curr = tokens;
 	if (!tokens)
 		return ;
 	cmds = parser(tokens);
 	if (!cmds)
 	{
 		free_token(&tokens);
+		free_cmds(&cmds);
 		return ;
 	}
 	free_token(&tokens);

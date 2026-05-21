@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:54:05 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/21 14:26:47 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ void	free_cmds(t_cmd **cmd)
 		tmp = curr->next;
 		free_args(curr->args);
 		free_redir(&curr->redir);
-		free(cmd);
+		free(curr);
 		curr = tmp;
 	}
 	*cmd = NULL;
-
 }
 
 int	count_args(t_token *token)

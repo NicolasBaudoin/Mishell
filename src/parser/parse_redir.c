@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 23:25:41 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:49:05 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/21 14:49:36 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	parse_redirs(t_token **token, t_cmd *cmd)
 	*token = (*token)->next;
 	printf("parse_redirs: file token=%s\n", (*token) ? (*token)->value : "NULL");
 	redir->file = ft_strdup((*token)->value);
+	printf("CMD PTR = %p\n", cmd);
+	printf("REDIR PTR = %p\n", cmd->redir);
 	if (!redir->file)
 	{
 		free(redir);

@@ -219,13 +219,13 @@ next ────────────────►   next = NULL
 - [x] Refacto norme 42 (25 lignes)
 
 #### 🔧 Parser
-- [ ] Structures t_cmd et t_redir
-- [ ] compter les args avant pipe
-- [ ] remplir char **args
+- [x] Structures t_cmd et t_redir
+- [x] compter les args avant pipe
+- [x] remplir char **args
 - [ ] construire liste t_redir
 - [ ] construire liste t_cmd
-- [ ] Détection erreurs syntaxe (pipe seul, etc.)
-- [ ] free_commands() — libération mémoire
+- [x] Détection erreurs syntaxe (pipe seul, etc.)
+- [x] free_commands() — libération mémoire
 
 #### 🔀 Expander
 - [ ] Expansion $VAR dans les WORD
