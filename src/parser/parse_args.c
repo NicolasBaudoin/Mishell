@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:49:11 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/22 12:51:22 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 14:50:29 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,41 +25,24 @@ void	free_args(char **args)
 	free(args);
 }
 
-int	parse_args(t_token **token, t_cmd *cmd)
+int	parse_args(t_token **token, t_cmd *cmd, int *i)
 {
 	int	counter;
-	int	i;
 
-	counter = count_args(*token);
-	i = 0;
-	cmd->args = malloc(sizeof(char *) * (counter + 1));
+	if (!cmd->args)
+		cmd->args = malloc(sizeof(char *) * (counter + 1));
+	else
+	 	ft_realloc(*cmd->args, *i + 1, *i + 2);
 	if (!cmd->args)
 		return (1);
-	while (*token)
+	cmd->args[*i] = ft_strdup((*token)->value);
+	if (!cmd->args[*i])
 	{
-		if ((*token)->type == WORD)
-		{
-			cmd->args[i] = ft_strdup((*token)->value);
-			if (!cmd->args[i])
-			{
-				free_args(cmd->args);
-				return (1);
-			}
-			*token = (*token)->next;
-			i++;
-		}
-		else if (is_token_redir((*token)->type))
-		{
-			if (parse_redirs(token, cmd))
-			{
-				free_args(cmd->args);
-				return (1);
-			}
-			*token = (*token)->next->next;
-		}
-		else
-			break ;
+		free_args(cmd->args);
+		return (1);
 	}
-	cmd->args[i] = NULL;
+	*token = (*token)->next;
+	(*i)++;
+	cmd->args[*i] = NULL;
 	return (0);
 }

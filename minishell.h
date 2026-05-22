@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:49:50 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 14:49:02 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ t_cmd	*build_commands(t_token **token);
 // args
 t_cmd	*new_command(void);
 int		count_args(t_token *token);
-int		parse_args(t_token **token, t_cmd *cmd);
+int		parse_args(t_token **token, t_cmd *cmd, int *i);
 void	add_back_cmd(t_cmd **lst, t_cmd *node_to_add);
 // redirections
 
@@ -157,6 +157,7 @@ int		parse_redirs(t_token **token, t_cmd *cmd);
 void	free_args(char **args);
 void	free_cmds(t_cmd **cmd);
 void	free_redir(t_redir **redir);
+char	*ft_realloc(char *str, size_t previous_size, size_t new_size);
 
 // =====
 // UTILS

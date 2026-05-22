@@ -6,11 +6,12 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 16:04:25 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/11 19:21:52 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 15:00:02 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+#include <stddef.h>
 
 char	*ft_strndup(const char *s, int start, int end)
 {
@@ -28,4 +29,21 @@ char	*ft_strndup(const char *s, int start, int end)
 	}
 	dup[i] = '\0';
 	return (dup);
+}
+
+char	*ft_realloc_args(char **str)
+{
+	char	**new;
+	size_t	size;
+
+	size = 0;
+	while (*str++)
+		size++;
+	// Realloc de **args
+	new = ft_calloc((size + 1),  sizeof(char *));
+	// copy de chaque *args et NULL terminate
+
+
+	while ()
+	return (new);
 }

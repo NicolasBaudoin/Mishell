@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/22 12:40:38 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 14:39:22 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,20 +84,22 @@ void	add_back_cmd(t_cmd **lst, t_cmd *node_to_add)
 t_cmd	*build_commands(t_token **token)
 {
 	t_cmd *cmd;
+	int	i;
 
 	cmd = new_command();
+	i = 0;
 	while (*token && (*token)->type != PIPE)
 	{
 		printf("build commands : token: %s type: %d\n", (*token)->value, (*token)->type); // debug
 		if (is_token_word((*token)->type))
 		{
-			if (parse_args(token, cmd))
+			if (parse_args(token, cmd, &i))
 			{
 				// free_cmd(cmd);
 				return (NULL);
 			}
 		}
-		else if (*token && is_token_redir((*token)->type))
+		else if (is_token_word((*token)->type))
 		{
 			if (parse_redirs(token, cmd))
 			{

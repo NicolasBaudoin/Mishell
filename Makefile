@@ -6,14 +6,14 @@
 #    By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 18:00:19 by nbaudoin          #+#    #+#              #
-#    Updated: 2026/05/22 12:19:47 by nbaudoin         ###   ########.fr        #
+#    Updated: 2026/05/22 14:39:42 by nbaudoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -g
 
 cyan = /bin/echo -e "\x1b[36m\#\# $1\x1b[0m"
 
