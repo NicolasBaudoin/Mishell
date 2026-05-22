@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/21 14:28:21 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 12:25:14 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	mishell_is_working(char *input)
 	if (!cmds)
 	{
 		free_token(&tokens);
-		free_cmds(&cmds);
 		return ;
 	}
 	free_token(&tokens);

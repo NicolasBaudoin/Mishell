@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:49:11 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/20 00:43:25 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 12:51:22 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,30 @@ int	parse_args(t_token **token, t_cmd *cmd)
 	cmd->args = malloc(sizeof(char *) * (counter + 1));
 	if (!cmd->args)
 		return (1);
-	while (*token && (*token)->type == WORD)
+	while (*token)
 	{
-		cmd->args[i] = ft_strdup((*token)->value);
-		if (!cmd->args[i])
+		if ((*token)->type == WORD)
 		{
-			free_args(cmd->args);
-			return (1);
+			cmd->args[i] = ft_strdup((*token)->value);
+			if (!cmd->args[i])
+			{
+				free_args(cmd->args);
+				return (1);
+			}
+			*token = (*token)->next;
+			i++;
 		}
-		*token = (*token)->next;
-		i++;
+		else if (is_token_redir((*token)->type))
+		{
+			if (parse_redirs(token, cmd))
+			{
+				free_args(cmd->args);
+				return (1);
+			}
+			*token = (*token)->next->next;
+		}
+		else
+			break ;
 	}
 	cmd->args[i] = NULL;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/21 14:26:47 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 12:40:38 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int	count_args(t_token *token)
 	{
 		if (curr->type == WORD)
 			counter ++;
+		else if (is_token_redir(curr->type))
+		{
+			curr = curr->next->next;
+			continue ;
+		}
 		else
 			break ;
 		curr = curr->next;
@@ -96,8 +101,8 @@ t_cmd	*build_commands(t_token **token)
 		{
 			if (parse_redirs(token, cmd))
 			{
-				// free_cmd(cmd);
-				// free_redir()redir;
+				free_cmds(&cmd);
+				free_redir(&cmd->redir);
 				return (NULL);
 			}
 		}
