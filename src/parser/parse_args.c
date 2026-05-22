@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:49:11 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/22 14:50:29 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/22 15:36:10 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ void	free_args(char **args)
 
 int	parse_args(t_token **token, t_cmd *cmd, int *i)
 {
-	int	counter;
-
 	if (!cmd->args)
-		cmd->args = malloc(sizeof(char *) * (counter + 1));
+		cmd->args = ft_calloc( 1,sizeof(char *));
 	else
-	 	ft_realloc(*cmd->args, *i + 1, *i + 2);
+	 	cmd->args = ft_realloc_args(cmd->args);
 	if (!cmd->args)
 		return (1);
 	cmd->args[*i] = ft_strdup((*token)->value);
@@ -44,5 +42,6 @@ int	parse_args(t_token **token, t_cmd *cmd, int *i)
 	*token = (*token)->next;
 	(*i)++;
 	cmd->args[*i] = NULL;
+	free(str);
 	return (0);
 }
