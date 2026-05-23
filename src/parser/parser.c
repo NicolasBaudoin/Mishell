@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 13:50:50 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/23 21:16:22 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/23 21:40:03 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ t_cmd	*parser(t_token *token)
 	while (token)
 	{
 		cmd = build_commands(&token);
+		if (!cmd)
+		{
+			free_cmds(&cmd_lst);
+			return (NULL);
+		}
 		add_back_cmd(&cmd_lst, cmd);
 		if (token && token->type == PIPE)
 			token = token->next;
