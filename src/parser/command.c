@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/23 21:18:26 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/23 21:25:48 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ t_cmd	*build_commands(t_token **token)
 	i = 0;
 	while (*token)
 	{
-		printf("token: %s type: %d\n", (*token)->value, (*token)->type);
 		if (is_token_word((*token)->type))
 		{
 			cmd->args[i++] = ft_strdup((*token)->value);
