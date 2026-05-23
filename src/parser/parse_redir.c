@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 23:25:41 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/22 14:29:35 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/23 21:17:14 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	free_redir(t_redir **redir)
 {
-	t_redir *curr;
-	t_redir *tmp;
+	t_redir	*curr;
+	t_redir	*tmp;
 
 	curr = *redir;
 	while (curr)
@@ -58,18 +58,14 @@ void	add_back_redir(t_redir **lst, t_redir *node_to_add)
 
 int	parse_redirs(t_token **token, t_cmd *cmd)
 {
-	t_redir *redir;
+	t_redir	*redir;
 
-	printf("parse_redirs: token=%s type=%d\n", (*token)->value, (*token)->type);
 	redir = new_redir();
 	if (!redir)
 		return (1);
 	redir->type = (*token)->type;
 	*token = (*token)->next;
-	printf("parse_redirs: file token=%s\n", (*token) ? (*token)->value : "NULL");
 	redir->file = ft_strdup((*token)->value);
-	printf("CMD PTR = %p\n", cmd);
-	printf("REDIR PTR = %p\n", cmd->redir);
 	if (!redir->file)
 	{
 		free(redir);

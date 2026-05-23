@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/22 15:32:30 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/23 21:23:49 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ typedef struct s_cmd
 {
 	char				**args;
 	t_redir				*redir;
-	struct s_cmd	*next;
+	struct s_cmd		*next;
 }				t_cmd;
 
 // general data
@@ -129,7 +129,7 @@ int		read_word_loop(t_lexer *lexer, char c);
 
 // syntax error
 
-t_cmd		*parser(t_token *token);
+t_cmd	*parser(t_token *token);
 int		syntax_error(t_token *token);
 int		check_first_last_pipe(t_token *token);
 int		check_consecutive_operator(t_token *token);
@@ -142,7 +142,7 @@ t_cmd	*build_commands(t_token **token);
 // args
 t_cmd	*new_command(void);
 int		count_args(t_token *token);
-int		parse_args(t_token **token, t_cmd *cmd, int *i);
+int		parse_args(t_cmd **cmd, int args_nbr);
 void	add_back_cmd(t_cmd **lst, t_cmd *node_to_add);
 // redirections
 
@@ -157,7 +157,7 @@ int		parse_redirs(t_token **token, t_cmd *cmd);
 void	free_args(char **args);
 void	free_cmds(t_cmd **cmd);
 void	free_redir(t_redir **redir);
-char	**ft_realloc_args(char **str);
+// char	**ft_realloc_args(char **str);
 // =====
 // UTILS
 // =====

@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 15:04:38 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/19 15:19:43 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/23 21:19:59 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_preset_error(int mode)
 {
-	char *message;
+	char	*message;
 
 	if (mode == 0)
 	{

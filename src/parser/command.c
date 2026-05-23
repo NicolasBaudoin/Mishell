@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 22:38:17 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/22 14:39:22 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/23 21:18:26 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	free_cmds(t_cmd **cmd)
 {
-	t_cmd *curr;
-	t_cmd *tmp;
-
+	t_cmd	*curr;
+	t_cmd	*tmp;
 
 	curr = *cmd;
 	while (curr)
@@ -83,33 +82,28 @@ void	add_back_cmd(t_cmd **lst, t_cmd *node_to_add)
 
 t_cmd	*build_commands(t_token **token)
 {
-	t_cmd *cmd;
-	int	i;
+	t_cmd	*cmd;
+	int		args_numbers;
+	int		i;
 
 	cmd = new_command();
+	args_numbers = count_args(*token);
+	if (parse_args(&cmd, args_numbers))
+		return (NULL);
 	i = 0;
-	while (*token && (*token)->type != PIPE)
+	while (*token)
 	{
-		printf("build commands : token: %s type: %d\n", (*token)->value, (*token)->type); // debug
+		printf("token: %s type: %d\n", (*token)->value, (*token)->type);
 		if (is_token_word((*token)->type))
 		{
-			if (parse_args(token, cmd, &i))
-			{
-				// free_cmd(cmd);
-				return (NULL);
-			}
+			cmd->args[i++] = ft_strdup((*token)->value);
+			*token = (*token)->next;
 		}
-		else if (is_token_word((*token)->type))
-		{
-			if (parse_redirs(token, cmd))
-			{
-				free_cmds(&cmd);
-				free_redir(&cmd->redir);
-				return (NULL);
-			}
-		}
+		else if (is_token_redir((*token)->type))
+			parse_redirs(token, cmd);
 		else
 			break ;
 	}
+	cmd->args[i] = NULL;
 	return (cmd);
 }
