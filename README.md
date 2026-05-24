@@ -1,4 +1,5 @@
-*This project has been created as part of the 42 curriculum by nbaudoin, uuenkhba.*
+*This project has been created as part of the 42 curriculum by nbaudoin*
+*It's a solo try to discover concepts by myself*
 <a id="#top"></a>
 
 # MINISHELL
