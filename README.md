@@ -23,8 +23,8 @@
 		- [branch management](#branch-management)
 		- [Structure visualisation](#structure-visualisation)
 		- [Minishell — Roadmap](#minishell--roadmap)
-			- [✅ Lexer](#-lexer)
-			- [🔧 Parser](#-parser)
+			- [Lexer (✅ 15/05/2026)](#lexer--15052026)
+			- [🔧 Parser (✅ 23/05/2026)](#-parser--23052026)
 			- [🔀 Expander](#-expander)
 			- [⚙️ Exécution](#️-exécution)
 			- [🏠 Builtins](#-builtins)
@@ -212,19 +212,19 @@ next ────────────────►   next = NULL
 
 ### Minishell — Roadmap
 
-#### ✅ Lexer
+####  Lexer (✅ 15/05/2026)
 - [x] Tokenisation des mots, opérateurs, quotes
 - [x] Détection quotes non fermées
 - [x] Gestion mémoire (free_tokens)
 - [x] Signaux SIGINT / SIGQUIT
 - [x] Refacto norme 42 (25 lignes)
 
-#### 🔧 Parser
+#### 🔧 Parser (✅ 23/05/2026)
 - [x] Structures t_cmd et t_redir
 - [x] compter les args avant pipe
 - [x] remplir char **args
-- [ ] construire liste t_redir
-- [ ] construire liste t_cmd
+- [x] construire liste t_redir
+- [x] construire liste t_cmd
 - [x] Détection erreurs syntaxe (pipe seul, etc.)
 - [x] free_commands() — libération mémoire
 
