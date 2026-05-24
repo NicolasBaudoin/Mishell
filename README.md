@@ -229,10 +229,24 @@ next ────────────────►   next = NULL
 - [x] free_commands() — libération mémoire
 
 #### 🔀 Expander
+Todo :
 - [ ] Expansion $VAR dans les WORD
 - [ ] Expansion $? (exit status)
-- [ ] Suppression des quotes après expansion
 - [ ] Pas d'expansion dans les single quotes
+- [ ] Expansion dans les double quotes
+- [ ] $ seul ou suivis d'un character non valide -> garde le $ littéral
+- [ ] Variable inexistante -> string vide
+  - [ ] Quotes
+    - [ ] Suppression des single quotes
+    - [ ] suppresion des double quotes
+    - [ ] Quotes imbriquées : "hello"world -> helloword
+    - [ ] Quotes vides: "" ou '' -> string vide conservée comme arg
+**Steps**
+- [ ] **1.Suppression des quotes**: Parcourir chaque args[i] et reconstruire la string sans les quotes
+- [ ] **2.Expansion des variables**: Detecter `$` dans les WORD, extraire le nom de la variable, chercher dans `env`, remplacer
+- [ ] **3.Expansion `$?`**: Cas spécial -> remplacer par g_status
+- [ ] **4.Combiner les deux**: L'ordre correct -> expansion d'abord, suppression des quotes ensuite
+- [ ] **5.Intégrer dans le pipeline**: Appeler l'expander sur chaque `t_cmd` après le parser, avant l'execution
 
 #### ⚙️ Exécution
 - [ ] Recherche dans PATH (execve)
