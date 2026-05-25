@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 13:49:01 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/25 16:27:57 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/25 16:33:46 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,12 @@ int		expand_args(t_cmd *cmd)
 		curr = curr->next;
 	}
 	return (0);
+}
+void	expander(t_cmd *cmd)
+{
+	// expand quotes
+	expand_args(cmd);
+	// expand VAR
+	// expand $?
+	// fix the pipeline
 }

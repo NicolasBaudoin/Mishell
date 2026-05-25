@@ -237,12 +237,12 @@ Todo :
 - [ ] $ seul ou suivis d'un character non valide -> garde le $ littéral
 - [ ] Variable inexistante -> string vide
   - [ ] Quotes
-    - [ ] Suppression des single quotes
-    - [ ] suppresion des double quotes
-    - [ ] Quotes imbriquées : "hello"world -> helloword
+    - [x] Suppression des single quotes
+    - [x] suppresion des double quotes
+    - [x] Quotes imbriquées : "hello"world -> helloword
     - [ ] Quotes vides: "" ou '' -> string vide conservée comme arg
 **Steps**
-- [ ] **1.Suppression des quotes**: Parcourir chaque args[i] et reconstruire la string sans les quotes
+- [x] **1.Suppression des quotes**: Parcourir chaque args[i] et reconstruire la string sans les quotes
 - [ ] **2.Expansion des variables**: Detecter `$` dans les WORD, extraire le nom de la variable, chercher dans `env`, remplacer
 - [ ] **3.Expansion `$?`**: Cas spécial -> remplacer par g_status
 - [ ] **4.Combiner les deux**: L'ordre correct -> expansion d'abord, suppression des quotes ensuite
