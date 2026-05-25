@@ -6,7 +6,7 @@
 #    By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/08 18:00:19 by nbaudoin          #+#    #+#              #
-#    Updated: 2026/05/22 14:39:42 by nbaudoin         ###   ########.fr        #
+#    Updated: 2026/05/25 16:04:09 by nbaudoin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ cyan = /bin/echo -e "\x1b[36m\#\# $1\x1b[0m"
 
 LEXER_DIR = src/lexer
 PARSE_DIR = src/parser
+EXPANDER_DIR = src/expander
 UTILS_DIR = src/utils
 
 LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c \
@@ -30,6 +31,8 @@ LEXER_FILES = ${LEXER_DIR}/lexer.c ${LEXER_DIR}/token.c \
 PARSE_FILES = ${PARSE_DIR}/parser.c ${PARSE_DIR}/syntax_error.c \
 			${PARSE_DIR}/command.c ${PARSE_DIR}/parse_args.c \
 			${PARSE_DIR}/parse_redir.c
+
+EXPANDER_FILES = ${EXPANDER_DIR}/expander.c
 
 UTILS_FILES = ${UTILS_DIR}/ft_strndup.c ${UTILS_DIR}/detect_char_type.c \
 		${UTILS_DIR}/detect_type.c ${UTILS_DIR}/print.c

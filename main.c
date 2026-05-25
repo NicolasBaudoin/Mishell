@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/23 21:30:06 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/25 16:30:00 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	g_status = 0;
 // status pour les signaux des fonctions et arret programme
-// add
 // execution(tokens);
 
 void	mishell_is_working(char *input)
@@ -31,6 +30,8 @@ void	mishell_is_working(char *input)
 		free_token(&tokens);
 		return ;
 	}
+	if (expand_args(cmds))
+		return ;
 	free_token(&tokens);
 	free_cmds(&cmds);
 }
