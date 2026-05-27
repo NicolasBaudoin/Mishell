@@ -6,7 +6,7 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:11:00 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/25 16:19:00 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/27 16:02:43 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ int		parse_redirs(t_token **token, t_cmd *cmd);
 
 // Expander
 
+int		expander(t_cmd *cmd, t_data *data);
 int		expand_args(t_cmd *cmd);
 
 // =====

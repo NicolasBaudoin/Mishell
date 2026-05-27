@@ -6,11 +6,11 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 01:07:51 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/26 15:27:26 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/27 17:33:35 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+
 #include "minishell.h"
 
 int	g_status = 0;
@@ -25,7 +25,7 @@ void	init_env_and_data(t_data *data, char **env)
 
 	while (env[i])
 		i++;
-	data->env = malloc(sizeof(char *) * ( + 1));
+	data->env = malloc(sizeof(char *) * (i + 1));
 	if (!data->env)
 		return ;
 	i = 0;
@@ -49,6 +49,9 @@ void	mishell_is_working(char *input, t_data *data)
 {
 	t_token	*tokens;
 	t_cmd	*cmds;
+	t_token	*test;
+	t_cmd	*test_cmd;
+	int i;
 
 	tokens = lexer(input);
 	if (!tokens)
@@ -59,8 +62,41 @@ void	mishell_is_working(char *input, t_data *data)
 		free_token(&tokens);
 		return ;
 	}
-	if (expand_args(cmds))
+	if (expander(cmds, data))
+	{
+		free_token(&tokens);
+		free_cmds(&cmds);
 		return ;
+	}
+	// test =============================
+	test = tokens;
+	test_cmd = cmds;
+		printf("------tokens test-----\n");
+	while (test)
+	{
+		printf("token value : {%s} token type {%d}\n", test->value, test->type);
+		test = test->next;
+	}
+	printf("------CMD test-----\n");
+	while (test_cmd)
+	{
+		printf("cmd : {%s}\n", test_cmd->args[0]);
+		i = 0;
+		while (test_cmd->args[i])
+		{
+			printf("args : {%s}\n", test_cmd->args[i]);
+			i++;
+		}
+		test_cmd = test_cmd->next;
+	}
+	printf("-------ENV TEST ------\n");
+	i = 0;
+	while (data->env[i])
+	{
+		printf("Env[%d] : {%s}\n", i, data->env[i]);
+		i++;
+	}
+	// end test ==============================
 	free_token(&tokens);
 	free_cmds(&cmds);
 }
@@ -70,6 +106,12 @@ int	main(int ac, char **av, char **env)
 	char	*input;
 	t_data	data;
 
+	av = NULL;
+	if (ac > 1)
+	{
+		printf("No args accepted, please use : ./minishell\n");
+		return (0);
+	}
 	setup_signals();
 	init_env_and_data(&data, env);
 	while (1)

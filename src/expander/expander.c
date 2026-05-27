@@ -6,13 +6,11 @@
 /*   By: nbaudoin <nbaudoin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 13:49:01 by nbaudoin          #+#    #+#             */
-/*   Updated: 2026/05/25 16:33:46 by nbaudoin         ###   ########.fr       */
+/*   Updated: 2026/05/27 17:57:48 by nbaudoin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-
-// can refacto in is_regular_char() for the forest of if
 
 static int	is_regular_char(t_state *status, char c)
 {
@@ -79,6 +77,11 @@ char	*remove_quotes(char *str)
 	return (no_quotes);
 }
 
+char	*expand_new_arg(char *string)
+{
+	remove_quotes(string)
+}
+
 int		expand_args(t_cmd *cmd)
 {
 	t_cmd	*curr;
@@ -92,7 +95,7 @@ int		expand_args(t_cmd *cmd)
 		i = 0;
 		while (curr->args && curr->args[i])
 		{
-			new_arg = remove_quotes(curr->args[i]);
+			new_arg = expand_new_arg(curr->args[i]);
 			if (!new_arg)
 				return (1);
 			free(curr->args[i]);
@@ -103,10 +106,13 @@ int		expand_args(t_cmd *cmd)
 	}
 	return (0);
 }
-void	expander(t_cmd *cmd)
+
+int		expander(t_cmd *cmd, t_data *data)
 {
-	// expand quotes
-	expand_args(cmd);
+	(void)data;
+	if (expand_args(cmd))
+		return (1);
+	return (0);
 	// expand VAR
 	// expand $?
 	// fix the pipeline
